@@ -1,6 +1,6 @@
 var Counter = {
-  count: 0,//data
-  init: function (){
+  count: 0, //data
+  init: function (){ //initializes the following functions
     Counter.cacheDom();
     Counter.addEventListeners();
     Counter.render();
@@ -10,18 +10,19 @@ var Counter = {
     Counter.decreaseButton = document.querySelector('#decrease');
     Counter.output = document.querySelector('#count');
   },
-  addEventListeners: function (){
-    Counter.increaseButton.addEventListener('click', Counter.increaseButton);
-    Counter.decreaseButton.addEventListener('click', Counter.decreaseButton);
+  addEventListeners: function (){ //adds mouse events
+    Counter.increaseButton.addEventListener('click', Counter.increase);
+    Counter.decreaseButton.addEventListener('click', Counter.decrease);
   },
   render: function (){
     Counter.output.innerHTML = Counter.count;
   },
-  inc: function(){
+  increase: function(){ 
+    Counter.count += 1;
     Counter.render();
   },
-  dec: function(){
-
+  decrease: function(){
+    Counter.count -= 1;
     Counter.render();
   },
 };
